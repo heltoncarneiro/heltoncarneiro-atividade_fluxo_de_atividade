@@ -15,6 +15,15 @@ app.get('/api/filmes', (req, res) => {
   res.json(filmes);
 });
 
+// feature/post-filme
+app.post('/api/filmes', (req, res) => {
+  const novoFilme = {
+    id: filmes.length + 1,
+    nome: req.body.nome
+  };
+  filmes.push(novoFilme);
+  res.status(201).json(novoFilme);
+});
 
 app.listen(port, () => {
   console.log(`API rodando em http://localhost:5000`);
